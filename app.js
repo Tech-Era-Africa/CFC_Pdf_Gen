@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const PDFUtil = require('./pdf/pdfUtil.js');
 const { PDFDocument } = require('pdf-lib');
 require('dotenv').config();
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 5500;
 
 // This line includes the body-parser functionality (express.json()) in Express 4.x and above
 app.use(express.json());
+app.use(cors())
 
 app.get('/generate-pdf', async (req, res) => {
   try {
